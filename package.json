@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/Ibrahimabudalah/capstone-server/issues"
   },
-  "homepage": "https://github.com/Ibrahimabudalah/capstone-server#readme"
+  "homepage": "https://github.com/Ibrahimabudalah/capstone-server#readme",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3"
+  }
 }
