@@ -47,7 +47,7 @@ router.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
   //finding the user by the email
-  const user = await user.findOne({ email });
+  const user = await User.findOne({ email });
 
   //if it doesnt exist return to the app and send json
   if (!user)
