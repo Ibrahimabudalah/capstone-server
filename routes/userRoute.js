@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const bcrypt = require("bcrypt");
-const user = require("../models/user");
+const User = require("../models/user");
 const jwt = require("jsonwebtoken");
 
 //endpoint to handle request at /register
@@ -9,7 +9,7 @@ router.post("/register", async (req, res) => {
   const { fullname, email, password } = req.body;
 
   //checking if the user already exists
-  const userExist = await user.findOne({ email });
+  const userExist = await User.findOne({ email });
 
   //if it exists send the json to the app
   if (userExist)
@@ -20,7 +20,7 @@ router.post("/register", async (req, res) => {
   //hashing the password using bcrypt
   bcrypt.hash(password, 10, async (err, hash) => {
     //saving the user to the database
-    const user = await user.create({ fullname, email, password: hash });
+    const user = await User.create({ fullname, email, password: hash });
 
     //signing in to jwt and get an access token
     const accessToken = jwt.sign(
