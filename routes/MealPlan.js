@@ -8,7 +8,9 @@ const API_KEY = "c4a537f9b8a74eff8642d5d7f2102955";
 //this endpoint is to handle the post req
 router.post('/getMealData', async (req, res) => {
 
-    const { calories, userID } = req.body
+    const { calories } = req.body
+
+    const {userID} = req.user.id
 
     const { data } = await axios.get(`https://api.spoonacular.com/mealplanner/generate?apiKey=${API_KEY}&timeFrame=day&targetCalories=${calories}`)
     
@@ -34,9 +36,9 @@ router.post('/getMealData', async (req, res) => {
 
 
 //get req endpoint /getSavedMeal/123 
-router.get('/getSavedMeal/:userID', async (req, res) => {
+router.get('/getSavedMeals', async (req, res) => {
 
-    const { userID } = req.params
+    const  userID  = req.params.id
 
     const mealData = await mealPlan.findOne({ userID })
     res.send(mealData)
