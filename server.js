@@ -30,7 +30,7 @@ mongoose.connect(MONGODB_URI, console.log("Connected to DataBase"));
 const route = require("./routes/mealPlan")
 app.use("/meal", verifyToken, route);
 
-const userRouter = require("./routes/userRoute")
+const userRouter = require("./routes/MealPlan.js")
 app.use("/user", userRouter);
 
 //listener
