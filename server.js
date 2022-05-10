@@ -27,7 +27,7 @@ const MONGODB_URI = process.env.MONGODB_URI;
 mongoose.connect(MONGODB_URI, console.log("Connected to DataBase"));
 
 //routes
-const route = require("./routes/mealPlan")
+const route = require("./routes/MealPlan")
 app.use("/meal", verifyToken, route);
 
 const userRouter = require("./routes/MealPlan.js")
